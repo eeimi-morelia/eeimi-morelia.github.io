@@ -125,6 +125,32 @@ a.href=enlaceWhatsApp(a.dataset.mensaje);
 a.target='_blank';
 a.rel='noopener noreferrer';
 });
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const numero = '525666449955';
+  document.querySelectorAll('a[href*="wa.me/525666445599"]').forEach(a => {
+    a.href = a.href.replace('525666445599', numero);
+  });
+
+  const contacto = document.querySelector('#contacto .container');
+  if (contacto && !document.querySelector('#asistencia-eeimi')) {
+    const boton = document.createElement('a');
+    boton.id = 'asistencia-eeimi';
+    boton.href = 'tel:+' + numero;
+    boton.textContent = '☎ Llamar para asistencia técnica';
+    boton.style.cssText = 'display:inline-block;margin:18px 8px;padding:15px 22px;border-radius:30px;background:#075281;color:white;font-weight:bold;text-decoration:none';
+    contacto.appendChild(boton);
+  }
+
+  if (!document.getElementById('mantenimiento')) {
+    const seccion = document.createElement('section');
+    seccion.id = 'mantenimiento';
+    seccion.style.cssText = 'background:#f0f4fa;padding:45px 18px;text-align:center';
+    seccion.innerHTML = '<h2>Programas de mantenimiento</h2><p>Mantenimiento preventivo y correctivo para hogares, comercios, edificios y condominios.</p><p>Pregunta por todas las opciones disponibles.</p><a href="https://wa.me/' + numero + '?text=Hola%2C%20quiero%20informacion%20sobre%20programas%20de%20mantenimiento" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#05b93c;color:white;padding:15px 22px;border-radius:30px;text-decoration:none;font-weight:bold">Consultar programas por WhatsApp</a>';
+    const contactoSeccion = document.getElementById('contacto');
+    if (contactoSeccion) contactoSeccion.before(seccion);
+  }
+});
 </script>
 </body>
 </html>
